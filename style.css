@@ -1,0 +1,84 @@
+body {
+  width: 99%;
+
+  font-family: "Merriweather", serif;
+  font-size: 20px;
+}
+
+.header {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom_input {
+  margin: 20px 0 10px 0;
+  width: 50%;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 7px;
+  display: flex;
+  justify-content: right;
+  padding: 0 5px;
+}
+
+.custom_button {
+  cursor: pointer;
+}
+
+.custom_input input {
+  width: 100%;
+  /* opacity: 0; */
+  border-radius: 7px;
+  border: 2px solid;
+}
+
+.todo {
+  border: 1px solid;
+  min-width: 40vw;
+  border-radius: 7px;
+  padding: 0 10px 0 10px;
+  margin-bottom: 5px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonBox {
+  display: flex;
+  align-items: center;
+}
+
+.buttonBox img {
+  cursor: pointer;
+}
+
+.custom_input input {
+  border: none;
+  outline: none;
+  font-family: "Merriweather", serif;
+  font-size: 15px;
+}
+
+.custom_input input::placeholder {
+  font-family: "Merriweather", serif;
+  font-size: 10px;
+  color: rgb(215, 215, 215);
+}
+
+.custom_deleteAll {
+  cursor: pointer;
+}
+
+.titleHead {
+  font-size: 10px;
+  text-align: center;
+}
+
