@@ -1,8 +1,10 @@
 body {
   width: 99%;
-
   font-family: "Merriweather", serif;
   font-size: 20px;
+  background: url('https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2655.jpg?size=626&ext=jpg&ga=GA1.2.925857727.1640044800');
+
+  background-size:cover;
 }
 
 .header {
@@ -19,6 +21,7 @@ body {
 }
 
 .custom_input {
+  min-width: 170px;
   margin: 20px 0 10px 0;
   width: 50%;
   height: 30px;
@@ -27,15 +30,25 @@ body {
   display: flex;
   justify-content: right;
   padding: 0 5px;
+  box-shadow: 2px 3px 15px rgb(174, 174, 174);
+  background-color: white;
+  align-items: center;
 }
 
 .custom_button {
   cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+}
+
+.custom_button:hover {
+  background-color: rgb(230, 230, 230);
+  
 }
 
 .custom_input input {
   width: 100%;
-  /* opacity: 0; */
   border-radius: 7px;
   border: 2px solid;
 }
@@ -43,12 +56,15 @@ body {
 .todo {
   border: 1px solid;
   min-width: 40vw;
+  min-height: 30px;
   border-radius: 7px;
   padding: 0 10px 0 10px;
   margin-bottom: 5px;
-
+  align-items: center;
+  background-color: white;
   display: flex;
   justify-content: space-between;
+  box-shadow: 2px 3px 15px rgb(174, 174, 174);
 }
 
 .buttonBox {
@@ -58,6 +74,15 @@ body {
 
 .buttonBox img {
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttonBox img:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.buttonBox img:first-child{
+  margin-right: 5px;
 }
 
 .custom_input input {
@@ -73,12 +98,30 @@ body {
   color: rgb(215, 215, 215);
 }
 
-.custom_deleteAll {
+.buttonCustomDelete {
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttonCustomDelete:hover{
+  background-color: rgb(230, 230, 230);
 }
 
 .titleHead {
   font-size: 10px;
   text-align: center;
+}
+
+.editText{
+  border: none;
+  outline: none;
+
+  outline: 1px solid black;
+  border-radius: 3px;
+  width: 27vw;
+  font-family: "Merriweather", serif;
+  font-size: 20px;
+  height: 20px;
+  
 }
 

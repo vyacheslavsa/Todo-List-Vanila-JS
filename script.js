@@ -1,7 +1,9 @@
 const todosBox = document.querySelector(".todos_box")
 const addButton = document.querySelector('.custom_button')
 const inputText = document.querySelector(".input_text")
-const deleteAllTask = document.querySelector('.custom_deleteAll')
+const deleteAllTask = document.querySelector('.buttonCustomDelete')
+const customInput = document.querySelector('.custom_input')
+
 let allTask = JSON.parse(localStorage.getItem('arrTodos')) || []
 
 const addElement = () => { //добавляем новый элемент в массив
@@ -26,6 +28,7 @@ const cleanChild = () => {//удаляем со страницы предыду�
     todosBox.removeChild(todosBox.firstChild);
   }
 }
+
 
 const render = () => {//функция рендера тасок
   cleanChild()//очищаем перед использованием контейнер
@@ -60,6 +63,7 @@ const render = () => {//функция рендера тасок
     newImgEdit.addEventListener('click', () => editTask(i))
 
   })
+  
 }
 
 render()
@@ -70,8 +74,27 @@ const deleteTask = (i) => {
   render()
 }
 
+const saveText = (i,text) => {
+  allTask[i].text = text
+  localStorage.setItem('arrTodos', JSON.stringify(allTask))
+  render()
+}
+
 const editTask = (i) => {
-  console.log('edit element -', i)
+  const newInput = document.createElement('input')
+  const buttonSave = document.createElement('img')
+  buttonSave.src = './image/check_circle_black_24dp.svg'
+  buttonSave.className = 'buttonSave'
+  newInput.className = 'editText'
+  const currentTodo = document.querySelector(`#todo-${i}`)
+  const childBox = currentTodo.childNodes
+  const divText = childBox[0]
+  const buttonBox = childBox[1]
+  divText.replaceWith(newInput)
+  newInput.value = divText.innerHTML
+  const childButtonBox = buttonBox.childNodes
+  childButtonBox[0].replaceWith(buttonSave)
+  buttonSave.addEventListener('click', () => saveText(i,newInput.value))
 }
 
 deleteAllTask.addEventListener('click', () => {
@@ -79,6 +102,16 @@ deleteAllTask.addEventListener('click', () => {
   localStorage.setItem('arrTodos', JSON.stringify(allTask))
   render()
 })
+
+const checkTodo = () =>{
+  // 
+  //   const buttonCustomDelete = document.createElement('img')
+  //   buttonCustomDelete.className = 'buttonCustomDelete'
+  //   buttonCustomDelete.src = './image/delete_all_24dp.svg'
+  //   buttonCustomDelete.title = 'Удалить все задачи'
+  //   customInput.appendChild(buttonCustomDelete)
+  // 
+}
 
 
 
