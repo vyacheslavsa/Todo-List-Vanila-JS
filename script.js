@@ -7,11 +7,11 @@ const customInput = document.querySelector('.custom_input')
 let allTask = JSON.parse(localStorage.getItem('arrTodos')) || []
 
 const addElement = () => { //добавляем новый элемент в массив
-  if (inputText.value !== '') {
-    allTask.push({ 'text': inputText.value })
-    localStorage.setItem('arrTodos', JSON.stringify(allTask))
-    render()
-    inputText.value = ''
+  if (inputText.value !== '') {//проверяем не пустая ли строка в инпуте
+    allTask.push({ 'text': inputText.value })//добавляем новое значение объект в массив
+    localStorage.setItem('arrTodos', JSON.stringify(allTask))//обновляем localstorage
+    render()//перерендериваем контент
+    inputText.value = ''//очищаем инпут от старого значения
   }
 }
 
@@ -40,8 +40,8 @@ const render = () => {//функция рендера тасок
     const newImgEdit = document.createElement('img')//создаем новый тег img edit
     const newImgDelete = document.createElement('img')//создаем новый тег img delete
 
-    newImgEdit.className = 'buttonEdit'
-    newImgDelete.className = 'buttonDelete'
+    newImgEdit.className = 'buttonEdit'//добавляем классы к созданным элементам
+    newImgDelete.className = 'buttonDelete'//добавляем классы к созданным элементам
     buttonBox.className = 'buttonBox'//добавляем классы к созданным элементам
     divText.className = 'divText'//добавляем классы к созданным элементам
     newTask.className = "todo"//добавляем классы к созданным элементам
@@ -59,8 +59,8 @@ const render = () => {//функция рендера тасок
     newTask.appendChild(divText)//добаляем див с текстом в новый таск
     newTask.appendChild(buttonBox)//добаляем блок с кнопками в новый таск
     todosBox.appendChild(newTask)//добавляем новый таск в контейнер для тасков
-    newImgDelete.addEventListener('click', () => deleteTask(i))
-    newImgEdit.addEventListener('click', () => editTask(i))
+    newImgDelete.addEventListener('click', () => deleteTask(i))//добавляем для кажждого элемента событие клик
+    newImgEdit.addEventListener('click', () => editTask(i))//добавляем для кажждого элемента событие клик
 
   })
   
@@ -68,23 +68,23 @@ const render = () => {//функция рендера тасок
 
 render()
 
-const deleteTask = (i) => {
-  allTask.splice(i, 1)
-  localStorage.setItem('arrTodos', JSON.stringify(allTask))
-  render()
+const deleteTask = (i) => {//функция удаления одной задачи
+  allTask.splice(i, 1)//удаляем выбранную задачу из массива
+  localStorage.setItem('arrTodos', JSON.stringify(allTask))//обновляем localstorage
+  render()//запускаем рендер
 }
 
-const saveText = (i,text) => {
-  allTask[i].text = text
-  localStorage.setItem('arrTodos', JSON.stringify(allTask))
-  render()
+const saveText = (i,text) => {//функция сохранения измененного текста
+  allTask[i].text = text//заменяем текс в нужном элементе
+  localStorage.setItem('arrTodos', JSON.stringify(allTask))//обновляем localstorage
+  render()//запускаем рендер
 }
 
-const editTask = (i) => {
-  const newInput = document.createElement('input')
-  const buttonSave = document.createElement('img')
-  buttonSave.src = './image/check_circle_black_24dp.svg'
-  buttonSave.className = 'buttonSave'
+const editTask = (i) => {//функция редактирования текста
+  const newInput = document.createElement('input')//создаем новый инпут для редактирования текста
+  const buttonSave = document.createElement('img')//создаем кнопку сохранения измененного текста
+  buttonSave.src = './image/check_circle_black_24dp.svg'//добавляем ссылку на изображение
+  buttonSave.className = 'buttonSave'//создаем класс для кнопки сохранения
   newInput.className = 'editText'
   const currentTodo = document.querySelector(`#todo-${i}`)
   const childBox = currentTodo.childNodes
@@ -97,7 +97,7 @@ const editTask = (i) => {
   buttonSave.addEventListener('click', () => saveText(i,newInput.value))
 }
 
-deleteAllTask.addEventListener('click', () => {
+deleteAllTask.addEventListener('click', () => {//функция очистки всех элементов
   allTask = []
   localStorage.setItem('arrTodos', JSON.stringify(allTask))
   render()
