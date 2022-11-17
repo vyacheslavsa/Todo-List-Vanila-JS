@@ -3,7 +3,7 @@ body {
   font-family: "Merriweather", serif;
   font-size: 20px;
   background: url('https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2655.jpg?size=626&ext=jpg&ga=GA1.2.925857727.1640044800');
-
+  min-height: 98vh;
   background-size:cover;
 }
 
@@ -114,8 +114,6 @@ body {
 
 .editText{
   border: none;
-  outline: none;
-
   outline: 1px solid black;
   border-radius: 3px;
   width: 27vw;
